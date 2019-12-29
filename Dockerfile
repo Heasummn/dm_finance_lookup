@@ -4,16 +4,16 @@ FROM node_base as parcel_base
 RUN npm install -g parcel --silent
 
 FROM parcel_base as deps
-WORKDIR /usr/app
-COPY package*.json /usr/app/
-# be careful with this line
-RUN npm install --silent 
+WORKDIR /usr/src
+COPY package*.json /usr/src/
+#be careful with this line
+RUN npm install --silent
 
 FROM parcel_base as build
-WORKDIR /usr/app
-COPY --from=deps /usr/app/node_modules /usr/app/node_modules
-COPY . /usr/app
+WORKDIR /usr/src
+COPY --from=deps /usr/src/node_modules /usr/src/node_modules
+COPY . /usr/src
 RUN npm run build
 
 FROM scratch AS ui
-COPY --from=build /usr/app/dist /usr/app
+COPY --from=build /usr/src/dist /usr/src
