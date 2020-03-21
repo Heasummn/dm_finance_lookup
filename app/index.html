@@ -23,7 +23,8 @@
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
       var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-      function handleClientLoad() {
+      // uglyish hack to get code to work with inline js; problem with Parcel
+      window.handleClientLoad = () => {
         gapi.load('client:auth2', initClient);
       }
 
