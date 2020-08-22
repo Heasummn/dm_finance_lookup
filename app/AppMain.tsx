@@ -32,7 +32,7 @@ class AppMain extends React.Component<IProps, IState> {
     4: 80,
     5: 50, // runners
     6: 120, // morale captains
-  } 
+  }
   private input = React.createRef<HTMLInputElement>();
 
   constructor(props) {
@@ -88,7 +88,7 @@ class AppMain extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <Container> 
+      <Container>
       <Row>
         <Col lg="12" className="text-center">
           <h1 className="mt-5">See how much you've raised!</h1>
@@ -100,8 +100,8 @@ class AppMain extends React.Component<IProps, IState> {
           <Form.Control as="input" pattern="\d{5}" maxLength="5" name="id" placeholder="Enter your student ID number here" autoComplete="off" ref={this.input as React.RefObject<any>}></Form.Control>
           <InputGroup.Append>
             <Button variant="outline-primary" type="submit" >
-              {this.state.searching ? 
-              <Spinner animation="border" role="status" variant="light"><span className="sr-only">Loading...</span></Spinner> : 
+              {this.state.searching ?
+              <Spinner animation="border" role="status" variant="light"><span className="sr-only">Loading...</span></Spinner> :
               "Search"}
             </Button>
           </InputGroup.Append>
@@ -117,7 +117,7 @@ class AppMain extends React.Component<IProps, IState> {
         </Col>
       </Row>
 
-      
+
       <Modal show={this.state.showErrorModal} onHide={() => this.setState({showErrorModal: false})}>
         <Modal.Header closeButton>
           <Modal.Title>Error</Modal.Title>
@@ -126,7 +126,7 @@ class AppMain extends React.Component<IProps, IState> {
           <p>
             Cannot find user in the Dance Marathon database with the given ID number. Please note the database may not be updated until
             Wednesday evening.
-            
+
             <br /> <br />Please contact <a href="mailto:nnfinance@dm219.org">Dance Marathon Finance</a> for any questions.
           </p>
         </Modal.Body>

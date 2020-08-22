@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
   </head>
-  
+
   <body>
     <div id="app"></div>
     <script id="js-entrypoint" src="./client.tsx"></script>
@@ -35,7 +35,6 @@
       function initClient() {
         gapi.client.init({
           apiKey: process.env.API_KEY,
-          //apiKey: "AIzaSyBf1r0CVq-oyDUdUWaslCx3YZa8-e2An7A",
           clientId: process.env.CLIENT_ID,
           discoveryDocs: DISCOVERY_DOCS,
           scope: SCOPES
@@ -47,5 +46,5 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
   </body>
-  
+
 </html>
