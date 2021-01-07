@@ -25,12 +25,12 @@ interface IState {
 
 class AppMain extends React.Component<IProps, IState> {
   private lookup = {
-    0: 500, // execs
+    0: 400, // execs
     1: 80, // dancers
     2: 80,
     3: 80,
     4: 80,
-    5: 50, // runners
+    5: 40, // runners
     6: 120, // morale captains
   }
   private input = React.createRef<HTMLInputElement>();
@@ -60,8 +60,8 @@ class AppMain extends React.Component<IProps, IState> {
       this.setState({searching: true, loaded: true})
       const id = val.value;
       gapi.client.sheets.spreadsheets.values.batchGet({
-        spreadsheetId: '1vW68Wava--5BEglqM-MGovOuLH8LgPZNpFENAtOGDxo',
-        ranges: ['Execs!D2:I', 'Freshmen(Dancers)!D2:I'],
+        spreadsheetId: '1Hmz0GLb4xPxmLOHGOeWF06moxrv1_2PxBDN3dfdovwg',
+        ranges: ['Execs!D2:I', 'Freshmen(Dancers)!D2:I', 'Sophomore(Dancers)!D2:I', 'Junior(Dancers)!D2:I', 'Senior(Dancers)!D2:I', 'Runners!D2:I', 'Morale Captains!D2:I'],
       }).then(response => {
         this.setState({searching: false})
         var ranges = response.result.valueRanges;
